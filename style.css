@@ -1,0 +1,2311 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   OPENING PAGE
+========================================= */
+
+.opening-page {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 15% 20%,
+      rgba(255, 255, 255, 0.75),
+      transparent 30%),
+
+    radial-gradient(circle at 85% 75%,
+      rgba(255, 255, 255, 0.55),
+      transparent 35%),
+
+    #f6e5e4;
+}
+
+
+/* =========================================
+   PAPER TEXTURE
+========================================= */
+
+.paper-grain {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.12;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.35'/%3E%3C/svg%3E");
+
+  mix-blend-mode: multiply;
+
+  z-index: 1;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.opening-content {
+  position: relative;
+
+  z-index: 5;
+
+  width: min(1150px, 94%);
+
+  padding: 50px 20px;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   SMALL TOP TEXT
+========================================= */
+
+.intro-text {
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 12px;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  color: #8c6c6c;
+
+  margin-bottom: 22px;
+
+  opacity: 0.8;
+}
+
+
+/* =========================================
+   MAIN TITLE
+========================================= */
+
+.main-title {
+  font-family: "Caveat", cursive;
+
+  font-size: clamp(70px, 9vw, 125px);
+
+  font-weight: 500;
+
+  line-height: 0.78;
+
+  color: #594041;
+
+  transform: rotate(-2deg);
+
+  margin-bottom: 75px;
+}
+
+.main-title span {
+  display: block;
+
+  font-size: 1.08em;
+
+  color: #765052;
+
+  transform: rotate(1deg);
+}
+
+
+/* =========================================
+   SURPRISE OPTIONS
+========================================= */
+
+.surprise-options {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-end;
+
+  gap: clamp(25px, 6vw, 100px);
+}
+
+
+/* =========================================
+   SURPRISE CARD
+========================================= */
+
+.surprise-card {
+  position: relative;
+
+  width: 220px;
+  min-height: 290px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  color: #594041;
+
+  font-family: inherit;
+
+  transition:
+    transform 0.45s cubic-bezier(0.2,
+      0.8,
+      0.2,
+      1);
+}
+
+
+/* =========================================
+   HOVER EFFECT
+========================================= */
+
+.surprise-card:hover {
+  transform:
+    translateY(-18px) rotate(-2deg);
+}
+
+.bouquet-card:hover {
+  transform:
+    translateY(-20px) rotate(2deg);
+}
+
+.envelope-card:hover {
+  transform:
+    translateY(-18px) rotate(-3deg);
+}
+
+
+/* =========================================
+   ILLUSTRATION
+========================================= */
+
+.illustration {
+  width: 200px;
+  height: 200px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  transition:
+    transform 0.45s ease;
+}
+
+.illustration img {
+  display: block;
+
+  width: auto;
+  height: auto;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 12px 9px rgba(84, 52, 50, 0.15));
+}
+
+
+/* =========================================
+   INDIVIDUAL OBJECT ROTATIONS
+========================================= */
+
+.camera-card .illustration {
+  transform: rotate(-5deg);
+}
+
+.bouquet-card .illustration {
+  transform: rotate(3deg);
+}
+
+.envelope-card .illustration {
+  transform: rotate(-4deg);
+}
+
+
+/* =========================================
+   ILLUSTRATION HOVER
+========================================= */
+
+.surprise-card:hover .illustration {
+  transform:
+    scale(1.08) rotate(-2deg);
+}
+
+
+/* =========================================
+   TEXT UNDER OBJECTS
+========================================= */
+
+.choice-name {
+  display: block;
+
+  font-family: "Caveat", cursive;
+
+  font-size: 32px;
+
+  font-weight: 600;
+
+  margin-top: 12px;
+
+  color: #553d3e;
+}
+
+.choice-hint {
+  display: block;
+
+  margin-top: 2px;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 12px;
+
+  font-style: italic;
+
+  color: #967778;
+
+  opacity: 0;
+
+  transform: translateY(6px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.surprise-card:hover .choice-hint {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   BOTTOM TEXT
+========================================= */
+
+.bottom-note {
+  margin-top: 60px;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 14px;
+
+  font-style: italic;
+
+  color: #8c6d6c;
+
+  opacity: 0.8;
+}
+
+
+/* =========================================
+   DECORATIVE HEARTS
+========================================= */
+
+.decor-heart {
+  position: absolute;
+
+  z-index: 3;
+
+  font-family: "Caveat", cursive;
+
+  color: #b77d82;
+
+  font-size: 28px;
+
+  opacity: 0.55;
+
+  pointer-events: none;
+
+  animation:
+    gentleFloat 5s ease-in-out infinite;
+}
+
+.heart-1 {
+  top: 16%;
+  left: 12%;
+
+  transform: rotate(-20deg);
+}
+
+.heart-2 {
+  top: 28%;
+  right: 13%;
+
+  font-size: 22px;
+
+  animation-delay: 1s;
+}
+
+.heart-3 {
+  bottom: 20%;
+  left: 17%;
+
+  font-size: 18px;
+
+  animation-delay: 2s;
+}
+
+.heart-4 {
+  bottom: 17%;
+  right: 18%;
+
+  font-size: 30px;
+
+  animation-delay: 3s;
+}
+
+
+/* =========================================
+   HEART ANIMATION
+========================================= */
+
+@keyframes gentleFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(0) rotate(-10deg);
+  }
+
+  50% {
+    transform:
+      translateY(-10px) rotate(8deg);
+  }
+}
+
+
+/* =========================================
+   CLICK ANIMATION
+========================================= */
+
+.surprise-card.clicked {
+  animation:
+    chooseItem 0.7s ease forwards;
+}
+
+@keyframes chooseItem {
+
+  0% {
+    transform:
+      scale(1) rotate(0);
+  }
+
+  40% {
+    transform:
+      scale(1.12) rotate(-4deg);
+  }
+
+  100% {
+    transform:
+      scale(0.96) rotate(0);
+
+    opacity: 0.7;
+  }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+  .surprise-options {
+    gap: 10px;
+  }
+
+  .surprise-card {
+    width: 180px;
+  }
+
+  .illustration {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .opening-page {
+    min-height: 100svh;
+  }
+
+  .opening-content {
+    padding:
+      40px 10px;
+  }
+
+  .intro-text {
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+  }
+
+  .main-title {
+    font-size: 70px;
+
+    margin-bottom: 35px;
+  }
+
+  .surprise-options {
+    width: 100%;
+
+    gap: 0;
+
+    align-items: flex-end;
+  }
+
+  .surprise-card {
+    width: 33.333%;
+
+    min-height: 210px;
+  }
+
+  .illustration {
+    width: 105px;
+    height: 115px;
+  }
+
+  .choice-name {
+    font-size: 24px;
+
+    margin-top: 8px;
+  }
+
+  .choice-hint {
+    display: none;
+  }
+
+  .bottom-note {
+    margin-top: 35px;
+
+    font-size: 12px;
+  }
+
+  .decor-heart {
+    font-size: 20px;
+  }
+
+  .heart-1 {
+    left: 5%;
+  }
+
+  .heart-2 {
+    right: 5%;
+  }
+
+  .heart-3 {
+    left: 8%;
+  }
+
+  .heart-4 {
+    right: 8%;
+  }
+}
+/* =========================================
+   MEMORIES PAGE
+========================================= */
+
+.memories-body {
+  background: #f5e4e2;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+.memories-page {
+  min-height: 100vh;
+
+  padding: 70px 30px 80px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(circle at 10% 20%,
+      rgba(255, 255, 255, 0.7),
+      transparent 30%),
+
+    radial-gradient(circle at 90% 80%,
+      rgba(255, 255, 255, 0.6),
+      transparent 30%);
+}
+
+
+/* Heading */
+
+.memories-small-title {
+  font-size: 11px;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  color: #947778;
+
+  margin-bottom: 12px;
+}
+
+
+.memories-title {
+  font-family: "Caveat", cursive;
+
+  font-size: clamp(65px, 8vw, 105px);
+
+  font-weight: 500;
+
+  line-height: 0.9;
+
+  color: #5c4142;
+
+  transform: rotate(-2deg);
+}
+
+
+.memories-subtitle {
+  font-family: "Playfair Display", serif;
+
+  font-style: italic;
+
+  font-size: 14px;
+
+  color: #947778;
+
+  margin-top: 18px;
+
+  margin-bottom: 55px;
+}
+
+
+/* =========================================
+   PHOTO WALL
+========================================= */
+
+.photo-wall {
+  width: min(1000px, 95%);
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 45px 35px;
+
+  align-items: center;
+}
+
+
+/* =========================================
+   POLAROID
+========================================= */
+
+.polaroid {
+  background: #fffdf8;
+
+  padding: 12px 12px 25px;
+
+  box-shadow:
+    0 12px 25px rgba(70, 45, 45, 0.16);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+.polaroid img {
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  object-fit: cover;
+}
+
+
+.polaroid p {
+  font-family: "Caveat", cursive;
+
+  font-size: 23px;
+
+  color: #604546;
+
+  margin-top: 8px;
+}
+
+
+/* Different handmade rotations */
+
+.polaroid-1 {
+  transform: rotate(-5deg);
+}
+
+.polaroid-2 {
+  transform: rotate(4deg);
+}
+
+.polaroid-3 {
+  transform: rotate(-2deg);
+}
+
+.polaroid-4 {
+  transform: rotate(3deg);
+}
+
+.polaroid-5 {
+  transform: rotate(-4deg);
+}
+
+.polaroid-6 {
+  transform: rotate(5deg);
+}
+
+
+/* Hover */
+
+.polaroid:hover {
+  transform:
+    translateY(-12px) rotate(0deg);
+
+  box-shadow:
+    0 20px 35px rgba(70, 45, 45, 0.22);
+
+  z-index: 5;
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.back-button {
+  margin-top: 60px;
+
+  padding: 12px 24px;
+
+  border: 1px solid #b89494;
+
+  border-radius: 30px;
+
+  background: transparent;
+
+  color: #76595a;
+
+  font-family: "Playfair Display", serif;
+
+  font-style: italic;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+
+.back-button:hover {
+  background: #76595a;
+
+  color: white;
+
+  transform: translateY(-3px);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .memories-page {
+    padding: 45px 15px 60px;
+  }
+
+  .memories-title {
+    font-size: 65px;
+  }
+
+  .memories-subtitle {
+    margin-bottom: 35px;
+  }
+
+  .photo-wall {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 28px 18px;
+  }
+
+  .polaroid {
+    padding: 8px 8px 18px;
+  }
+
+  .polaroid p {
+    font-size: 18px;
+  }
+
+}
+
+
+@media (max-width: 430px) {
+
+  .photo-wall {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 22px 12px;
+  }
+
+  .polaroid p {
+    font-size: 16px;
+  }
+
+}
+/* =========================================
+   BOUQUET PAGE
+========================================= */
+
+.bouquet-body {
+
+  min-height: 100vh;
+
+  background: #f5e4e2;
+
+  overflow-x: hidden;
+}
+
+
+.bouquet-page {
+
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 60px 20px;
+
+  background:
+    radial-gradient(circle at 15% 20%,
+      rgba(255, 255, 255, 0.75),
+      transparent 30%),
+
+    radial-gradient(circle at 85% 75%,
+      rgba(255, 255, 255, 0.6),
+      transparent 35%);
+}
+
+
+/* =========================================
+   SMALL TITLE
+========================================= */
+
+.bouquet-small-title {
+
+  font-size: 11px;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  color: #947778;
+
+  margin-bottom: 15px;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.bouquet-title {
+
+  font-family: "Caveat", cursive;
+
+  font-size: clamp(65px, 8vw, 105px);
+
+  font-weight: 500;
+
+  line-height: 0.8;
+
+  color: #5c4142;
+
+  transform: rotate(-2deg);
+
+  margin-bottom: 25px;
+}
+
+
+.bouquet-title span {
+
+  display: block;
+
+  color: #80595c;
+
+  transform: rotate(2deg);
+}
+
+
+/* =========================================
+   BOUQUET IMAGE
+========================================= */
+
+.big-bouquet {
+
+  width: min(420px, 75vw);
+
+  height: 420px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  animation:
+    bouquetFloat 4s ease-in-out infinite;
+}
+
+
+.big-bouquet img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 18px 12px rgba(80, 50, 50, 0.16));
+}
+
+
+/* =========================================
+   FLOATING BOUQUET
+========================================= */
+
+@keyframes bouquetFloat {
+
+  0%,
+  100% {
+
+    transform:
+      translateY(0) rotate(-1deg);
+
+  }
+
+  50% {
+
+    transform:
+      translateY(-12px) rotate(1deg);
+
+  }
+
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.bouquet-message {
+
+  max-width: 520px;
+
+  margin-top: 5px;
+
+  color: #705354;
+}
+
+
+.bouquet-message p {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  font-style: italic;
+}
+
+
+.bouquet-message span {
+
+  display: block;
+
+  margin-top: 12px;
+
+  font-family: "Caveat", cursive;
+
+  font-size: 25px;
+
+  color: #765052;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.bouquet-continue {
+
+  margin-top: 35px;
+
+  padding: 12px 25px;
+
+  border: 1px solid #b89494;
+
+  border-radius: 30px;
+
+  background: transparent;
+
+  color: #76595a;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-style: italic;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+
+.bouquet-continue:hover {
+
+  background: #76595a;
+
+  color: white;
+
+  transform: translateY(-3px);
+
+}
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+.petal {
+
+  position: fixed;
+
+  color: #bd858b;
+
+  font-family: "Caveat", cursive;
+
+  font-size: 25px;
+
+  opacity: 0.5;
+
+  pointer-events: none;
+
+  animation:
+    floatingPetal 5s ease-in-out infinite;
+}
+
+
+.petal-1 {
+
+  left: 12%;
+
+  top: 25%;
+
+  animation-delay: 0s;
+}
+
+
+.petal-2 {
+
+  right: 15%;
+
+  top: 20%;
+
+  animation-delay: 1s;
+}
+
+
+.petal-3 {
+
+  left: 20%;
+
+  bottom: 20%;
+
+  animation-delay: 2s;
+}
+
+
+.petal-4 {
+
+  right: 20%;
+
+  bottom: 25%;
+
+  animation-delay: 3s;
+}
+
+
+.petal-5 {
+
+  left: 50%;
+
+  top: 15%;
+
+  animation-delay: 1.5s;
+}
+
+
+@keyframes floatingPetal {
+
+  0%,
+  100% {
+
+    transform:
+      translateY(0) rotate(0deg);
+
+  }
+
+  50% {
+
+    transform:
+      translateY(-15px) rotate(12deg);
+
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .bouquet-page {
+
+    padding:
+      45px 15px;
+  }
+
+
+  .bouquet-title {
+
+    font-size: 65px;
+
+    margin-bottom: 10px;
+  }
+
+
+  .big-bouquet {
+
+    width: 300px;
+
+    height: 300px;
+  }
+
+
+  .bouquet-message {
+
+    max-width: 330px;
+  }
+
+
+  .bouquet-message p {
+
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+
+  .bouquet-message span {
+
+    font-size: 22px;
+  }
+
+}
+/* =========================================
+   LETTER PAGE
+========================================= */
+
+.letter-body {
+
+  min-height: 100vh;
+
+  background: #f5e4e2;
+
+  overflow-x: hidden;
+}
+
+
+.letter-page {
+
+  min-height: 100vh;
+
+  padding: 65px 20px 80px;
+
+  text-align: center;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  background:
+    radial-gradient(circle at 15% 20%,
+      rgba(255, 255, 255, 0.75),
+      transparent 30%),
+
+    radial-gradient(circle at 85% 75%,
+      rgba(255, 255, 255, 0.65),
+      transparent 35%);
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.letter-small-title {
+
+  font-size: 11px;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  color: #947778;
+
+  margin-bottom: 12px;
+}
+
+
+.letter-title {
+
+  font-family: "Caveat", cursive;
+
+  font-size: clamp(60px, 8vw, 100px);
+
+  font-weight: 500;
+
+  line-height: 0.85;
+
+  color: #5c4142;
+
+  transform: rotate(-2deg);
+
+  margin-bottom: 40px;
+}
+
+
+.letter-title span {
+
+  display: block;
+
+  color: #80595c;
+
+  transform: rotate(2deg);
+}
+
+
+/* =========================================
+   ENVELOPE
+========================================= */
+
+.letter-envelope {
+
+  position: relative;
+
+  width: 330px;
+
+  height: 220px;
+
+  cursor: pointer;
+
+  margin-top: 15px;
+
+  filter:
+    drop-shadow(0 18px 18px rgba(75, 45, 45, 0.16));
+
+  transition:
+    transform 0.4s ease;
+}
+
+
+.letter-envelope:hover {
+
+  transform:
+    translateY(-8px) rotate(-1deg);
+}
+
+
+/* Envelope back */
+
+.envelope-back {
+
+  position: absolute;
+
+  inset: 0;
+
+  background: #d9aeb0;
+
+  border-radius: 5px;
+
+  z-index: 1;
+}
+
+
+/* Letter inside */
+
+.envelope-paper {
+
+  position: absolute;
+
+  width: 85%;
+
+  height: 90%;
+
+  left: 7.5%;
+
+  top: -25px;
+
+  background: #fffdf8;
+
+  z-index: 2;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  transition:
+    transform 0.8s ease,
+    top 0.8s ease;
+}
+
+
+.envelope-paper span {
+
+  font-family: "Caveat", cursive;
+
+  font-size: 25px;
+
+  color: #765052;
+}
+
+
+/* Front */
+
+.envelope-front {
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 0;
+
+  width: 0;
+
+  height: 0;
+
+  border-left:
+    165px solid transparent;
+
+  border-right:
+    165px solid transparent;
+
+  border-bottom:
+    115px solid #c9969a;
+
+  z-index: 4;
+}
+
+
+/* Flap */
+
+.envelope-flap {
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 0;
+
+  height: 0;
+
+  border-left:
+    165px solid transparent;
+
+  border-right:
+    165px solid transparent;
+
+  border-top:
+    120px solid #e4bfc0;
+
+  transform-origin: top center;
+
+  z-index: 5;
+
+  transition:
+    transform 0.8s ease;
+}
+
+
+/* =========================================
+   OPEN ENVELOPE
+========================================= */
+
+.letter-envelope.open {
+
+  transform:
+    translateY(20px);
+}
+
+
+.letter-envelope.open .envelope-flap {
+
+  transform:
+    rotateX(180deg);
+
+  z-index: 1;
+}
+
+
+.letter-envelope.open .envelope-paper {
+
+  top: -145px;
+
+  transform:
+    translateY(-30px);
+
+  z-index: 6;
+}
+
+
+/* =========================================
+   OPEN HINT
+========================================= */
+
+.open-hint {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-style: italic;
+
+  color: #947778;
+
+  font-size: 13px;
+
+  margin-top: 30px;
+
+  transition:
+    opacity 0.4s ease;
+}
+
+
+.open-hint.hide {
+
+  opacity: 0;
+}
+
+
+/* =========================================
+   LETTER CONTENT
+========================================= */
+
+.letter-content {
+
+  width: min(700px, 92vw);
+
+  margin-top: 30px;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateY(30px);
+
+  transition:
+    opacity 1s ease,
+    transform 1s ease,
+    visibility 1s ease;
+}
+
+
+.letter-content.show {
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================
+   PAPER
+========================================= */
+
+.letter-paper {
+
+  background: #fffdf8;
+
+  padding:
+    55px 65px;
+
+  text-align: left;
+
+  box-shadow:
+    0 20px 45px rgba(75, 45, 45, 0.14);
+
+  position: relative;
+}
+
+
+/* Little paper corners */
+
+.letter-paper::before {
+
+  content: "♡";
+
+  position: absolute;
+
+  top: 18px;
+
+  right: 25px;
+
+  font-size: 20px;
+
+  color: #c89599;
+}
+
+
+.letter-date {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 13px;
+
+  font-style: italic;
+
+  color: #a17e7f;
+
+  margin-bottom: 30px;
+}
+
+
+.letter-paper h2 {
+
+  font-family:
+    "Caveat",
+    cursive;
+
+  font-size: 38px;
+
+  font-weight: 500;
+
+  color: #65494a;
+
+  margin-bottom: 20px;
+}
+
+
+/* =========================================
+   TYPEWRITER
+========================================= */
+
+.typewriter-text {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 16px;
+
+  line-height: 2;
+
+  color: #654e4f;
+
+  white-space: pre-line;
+
+  min-height: 200px;
+}
+
+
+.typewriter-text::after {
+
+  content: "|";
+
+  animation:
+    blinkCursor 0.8s infinite;
+
+}
+
+
+@keyframes blinkCursor {
+
+  0%,
+  50% {
+
+    opacity: 1;
+
+  }
+
+  51%,
+  100% {
+
+    opacity: 0;
+
+  }
+
+}
+
+
+/* =========================================
+   SIGNATURE
+========================================= */
+
+.letter-signature {
+
+  font-family:
+    "Caveat",
+    cursive;
+
+  font-size: 28px;
+
+  color: #765052;
+
+  margin-top: 35px;
+
+  text-align: right;
+}
+
+
+.letter-signature span {
+
+  font-size: 35px;
+
+  color: #bd858b;
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.letter-back {
+
+  margin-top: 45px;
+
+  padding:
+    12px 25px;
+
+  border:
+    1px solid #b89494;
+
+  border-radius: 30px;
+
+  background: transparent;
+
+  color: #76595a;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-style: italic;
+
+  cursor: pointer;
+
+  transition:
+    all 0.3s ease;
+}
+
+
+.letter-back:hover {
+
+  background: #76595a;
+
+  color: white;
+
+  transform:
+    translateY(-3px);
+}
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+.letter-heart {
+
+  position: fixed;
+
+  font-family:
+    "Caveat",
+    cursive;
+
+  font-size: 28px;
+
+  color: #c58b90;
+
+  opacity: 0.5;
+
+  animation:
+    letterFloat 5s ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+
+.heart-1 {
+
+  top: 20%;
+
+  left: 12%;
+}
+
+
+.heart-2 {
+
+  top: 30%;
+
+  right: 12%;
+
+  animation-delay: 1s;
+}
+
+
+.heart-3 {
+
+  bottom: 20%;
+
+  left: 18%;
+
+  animation-delay: 2s;
+}
+
+
+.heart-4 {
+
+  bottom: 25%;
+
+  right: 18%;
+
+  animation-delay: 3s;
+}
+
+
+@keyframes letterFloat {
+
+  0%,
+  100% {
+
+    transform:
+      translateY(0) rotate(0deg);
+
+  }
+
+  50% {
+
+    transform:
+      translateY(-15px) rotate(10deg);
+
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .letter-page {
+
+    padding:
+      45px 15px 70px;
+  }
+
+
+  .letter-title {
+
+    font-size: 62px;
+
+    margin-bottom: 25px;
+  }
+
+
+  .letter-envelope {
+
+    width: 280px;
+
+    height: 185px;
+  }
+
+
+  .envelope-front {
+
+    border-left-width: 140px;
+
+    border-right-width: 140px;
+
+    border-bottom-width: 98px;
+  }
+
+
+  .envelope-flap {
+
+    border-left-width: 140px;
+
+    border-right-width: 140px;
+
+    border-top-width: 100px;
+  }
+
+
+  .letter-paper {
+
+    padding:
+      35px 25px;
+  }
+
+
+  .typewriter-text {
+
+    font-size: 14px;
+
+    line-height: 1.9;
+  }
+
+}
+/* =========================================
+   HIDDEN MESSAGES PAGE
+========================================= */
+
+.messages-body {
+
+  min-height: 100vh;
+
+  background: #f7e9e7;
+
+  overflow-x: hidden;
+}
+
+
+.messages-page {
+
+  min-height: 100vh;
+
+  padding: 70px 20px;
+
+  text-align: center;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  background:
+    radial-gradient(circle at 15% 20%,
+      rgba(255, 255, 255, 0.8),
+      transparent 30%),
+    radial-gradient(circle at 85% 80%,
+      rgba(255, 255, 255, 0.7),
+      transparent 35%);
+}
+
+
+/* TITLE */
+
+.messages-small-title {
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  color: #a08081;
+}
+
+
+.messages-title {
+
+  font-family: "Caveat", cursive;
+
+  font-size: clamp(55px, 8vw, 90px);
+
+  line-height: 0.85;
+
+  font-weight: 500;
+
+  color: #604546;
+
+  margin: 15px 0;
+}
+
+
+.messages-title span {
+
+  display: block;
+
+  color: #855c5f;
+
+  transform: rotate(2deg);
+}
+
+
+.messages-description {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-style: italic;
+
+  color: #8c6c6d;
+
+  line-height: 1.8;
+
+  font-size: 14px;
+
+  margin-bottom: 25px;
+}
+
+
+/* HEART AREA */
+
+.message-area {
+
+  position: relative;
+
+  width: min(800px, 90vw);
+
+  height: 430px;
+
+  margin-top: 10px;
+}
+
+
+/* HEARTS */
+
+.hidden-heart {
+
+  position: absolute;
+
+  border: none;
+
+  background: transparent;
+
+  font-family: "Caveat", cursive;
+
+  font-size: 38px;
+
+  color: #c28c91;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+
+  animation:
+    softFloat 4s ease-in-out infinite;
+}
+
+
+.hidden-heart:hover {
+
+  transform:
+    scale(1.4) rotate(-8deg);
+
+  color: #9f696e;
+}
+
+
+.hidden-heart.found {
+
+  opacity: 0.25;
+
+  transform: scale(0.7);
+
+}
+
+
+/* POSITIONS */
+
+.heart-message-1 {
+
+  left: 8%;
+
+  top: 15%;
+}
+
+
+.heart-message-2 {
+
+  left: 38%;
+
+  top: 5%;
+
+  animation-delay: 1s;
+}
+
+
+.heart-message-3 {
+
+  right: 10%;
+
+  top: 18%;
+
+  animation-delay: 2s;
+}
+
+
+.heart-message-4 {
+
+  left: 20%;
+
+  top: 48%;
+
+  animation-delay: 0.5s;
+}
+
+
+.heart-message-5 {
+
+  right: 25%;
+
+  top: 45%;
+
+  animation-delay: 1.5s;
+}
+
+
+.heart-message-6 {
+
+  left: 45%;
+
+  bottom: 8%;
+
+  animation-delay: 2.5s;
+}
+
+
+.heart-message-7 {
+
+  right: 5%;
+
+  bottom: 15%;
+
+  animation-delay: 1s;
+}
+
+
+.heart-message-8 {
+
+  left: 5%;
+
+  bottom: 5%;
+
+  animation-delay: 3s;
+}
+
+
+@keyframes softFloat {
+
+  0%,
+  100% {
+
+    transform:
+      translateY(0);
+
+  }
+
+  50% {
+
+    transform:
+      translateY(-12px);
+
+  }
+
+}
+
+
+/* COUNTER */
+
+.messages-counter {
+
+  font-family:
+    "Caveat",
+    cursive;
+
+  font-size: 22px;
+
+  color: #806062;
+}
+
+
+/* NEXT BUTTON */
+
+.messages-next {
+
+  margin-top: 20px;
+
+  padding: 13px 25px;
+
+  border: 1px solid #b89596;
+
+  border-radius: 30px;
+
+  background: transparent;
+
+  color: #76595a;
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-style: italic;
+
+  cursor: pointer;
+
+  opacity: 0.4;
+
+  pointer-events: none;
+
+  transition: 0.3s ease;
+}
+
+
+.messages-next.ready {
+
+  opacity: 1;
+
+  pointer-events: auto;
+}
+
+
+.messages-next.ready:hover {
+
+  background: #76595a;
+
+  color: white;
+
+  transform:
+    translateY(-3px);
+}
+
+
+/* =========================================
+   POPUP
+========================================= */
+
+.message-popup {
+
+  position: fixed;
+
+  inset: 0;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  background:
+    rgba(80, 55, 55, 0.28);
+
+  backdrop-filter: blur(5px);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition: 0.4s ease;
+
+  z-index: 100;
+}
+
+
+.message-popup.show {
+
+  opacity: 1;
+
+  visibility: visible;
+}
+
+
+.message-popup-box {
+
+  position: relative;
+
+  width: min(430px, 85vw);
+
+  padding: 55px 35px;
+
+  background: #fffdf8;
+
+  text-align: center;
+
+  box-shadow:
+    0 20px 50px rgba(60, 40, 40, 0.2);
+
+  transform:
+    scale(0.8);
+
+  transition: 0.4s ease;
+}
+
+
+.message-popup.show .message-popup-box {
+
+  transform:
+    scale(1);
+}
+
+
+.close-message {
+
+  position: absolute;
+
+  top: 12px;
+
+  right: 18px;
+
+  border: none;
+
+  background: transparent;
+
+  font-size: 25px;
+
+  color: #997778;
+
+  cursor: pointer;
+}
+
+
+.popup-heart {
+
+  font-family:
+    "Caveat",
+    cursive;
+
+  font-size: 42px;
+
+  color: #b87880;
+
+  margin-bottom: 15px;
+}
+
+
+#popupMessage {
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-style: italic;
+
+  font-size: 17px;
+
+  line-height: 1.8;
+
+  color: #654d4e;
+}
+
+
+@media (max-width: 600px) {
+
+  .message-area {
+
+    height: 400px;
+
+  }
+
+  .hidden-heart {
+
+    font-size: 32px;
+
+  }
+
+}

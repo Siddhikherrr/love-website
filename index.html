@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Our Little Story ♡</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <!-- =========================================
+         DECORATIVE HEARTS
+    ========================================== -->
+
+  <div class="decor-heart heart-1">♡</div>
+
+  <div class="decor-heart heart-2">♡</div>
+
+  <div class="decor-heart heart-3">♥</div>
+
+  <div class="decor-heart heart-4">♡</div>
+
+
+  <!-- =========================================
+         OPENING PAGE
+    ========================================== -->
+
+  <main class="opening-page">
+
+
+    <!-- Paper texture -->
+
+    <div class="paper-grain"></div>
+
+
+    <!-- Main content -->
+
+    <section class="opening-content">
+
+
+      <!-- Small heading -->
+
+      <p class="intro-text">
+        a little something for you
+      </p>
+
+
+      <!-- Main title -->
+
+      <h1 class="main-title">
+
+        Choose your
+
+        <span>
+          surprise
+        </span>
+
+      </h1>
+
+
+      <!-- =================================
+                 THREE SURPRISE OPTIONS
+            ================================= -->
+
+      <div class="surprise-options">
+
+
+        <!-- =============================
+                     CAMERA / MEMORIES
+                ============================== -->
+
+        <button class="surprise-card camera-card" onclick="selectSurprise('camera')">
+
+          <div class="illustration">
+
+            <img src="assets/camera.png" alt="Camera">
+
+          </div>
+
+
+          <span class="choice-name">
+            memories
+          </span>
+
+
+          <span class="choice-hint">
+            little moments
+          </span>
+
+        </button>
+
+
+
+        <!-- =============================
+                     BOUQUET
+                ============================== -->
+
+        <button class="surprise-card bouquet-card" onclick="selectSurprise('bouquet')">
+
+          <div class="illustration">
+
+            <img src="assets/bouquet.png" alt="Bouquet">
+
+          </div>
+
+
+          <span class="choice-name">
+            a bouquet
+          </span>
+
+
+          <span class="choice-hint">
+            just for you
+          </span>
+
+        </button>
+
+
+
+        <!-- =============================
+                     LETTER / ENVELOPE
+                ============================== -->
+
+        <button class="surprise-card envelope-card" onclick="selectSurprise('letter')">
+
+          <div class="illustration">
+
+            <img src="assets/envelope.png" alt="Letter">
+
+          </div>
+
+
+          <span class="choice-name">
+            a letter
+          </span>
+
+
+          <span class="choice-hint">
+            from my heart
+          </span>
+
+        </button>
+
+
+      </div>
+
+
+      <!-- =================================
+                 BOTTOM TEXT
+            ================================== -->
+
+      <p class="bottom-note">
+        take your time ♡
+      </p>
+
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

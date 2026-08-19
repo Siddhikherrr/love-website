@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A Letter For You ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="letter-body">
+
+
+  <main class="letter-page">
+
+
+    <!-- Small heading -->
+
+    <p class="letter-small-title">
+      from my heart
+    </p>
+
+
+    <!-- Main heading -->
+
+    <h1 class="letter-title">
+      a little letter
+      <span>for you ♡</span>
+    </h1>
+
+
+    <!-- Envelope -->
+
+    <div class="letter-envelope" id="letterEnvelope" onclick="openLetter()">
+
+      <div class="envelope-back"></div>
+
+      <div class="envelope-paper">
+
+        <span>
+          for you ♡
+        </span>
+
+      </div>
+
+      <div class="envelope-front"></div>
+
+      <div class="envelope-flap"></div>
+
+    </div>
+
+
+    <p class="open-hint" id="openHint">
+      click the letter to open ♡
+    </p>
+
+
+    <!-- Actual letter -->
+
+    <section class="letter-content" id="letterContent">
+
+      <div class="letter-paper">
+
+        <p class="letter-date">
+          for my favourite person ♡
+        </p>
+
+
+        <h2>
+          My Love,
+        </h2>
+
+
+        <div class="typewriter-text" id="typewriterText"></div>
+
+
+        <p class="letter-signature">
+          always yours,
+          <br>
+          <span>♡</span>
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <button class="letter-back" onclick="window.location.href='index.html'">
+      ← back to my surprises
+    </button>
+
+
+    <!-- =========================================
+       HIDDEN MESSAGES
+  ========================================= -->
+
+    <section class="hidden-messages-section">
+
+      <p class="hidden-messages-small">
+        one last thing...
+      </p>
+
+
+      <h2 class="hidden-messages-title">
+        little things
+        <span>I want you to know ♡</span>
+      </h2>
+
+
+      <p class="hidden-messages-description">
+        There are little pieces of my heart
+        hidden around this page.
+        <br>
+        Find them all.
+      </p>
+
+
+      <div class="message-area">
+
+        <button class="hidden-heart heart-message-1" onclick="showHiddenMessage(1)">
+          ♡
+        </button>
+
+
+        <button class="hidden-heart heart-message-2" onclick="showHiddenMessage(2)">
+          ♡
+        </button>
+
+
+        <button class="hidden-heart heart-message-3" onclick="showHiddenMessage(3)">
+          ♡
+        </button>
+
+
+        <button class="hidden-heart heart-message-4" onclick="showHiddenMessage(4)">
+          ♡
+        </button>
+
+
+        <button class="hidden-heart heart-message-5" onclick="showHiddenMessage(5)">
+          ♡
+        </button>
+
+
+        <button class="hidden-heart heart-message-6" onclick="showHiddenMessage(6)">
+          ♡
+        </button>
+
+
+        <button class="hidden-heart heart-message-7" onclick="showHiddenMessage(7)">
+          ♡
+        </button>
+
+
+        <button class="hidden-heart heart-message-8" onclick="showHiddenMessage(8)">
+          ♡
+        </button>
+
+      </div>
+
+
+      <p class="messages-counter">
+        <span id="messageCount">0</span> / 8 found ♡
+      </p>
+
+
+      <button class="messages-next" id="messagesNext" onclick="goToFinalQuestion()">
+
+        there's something I want to ask you →
+
+      </button>
+
+    </section>
+
+
+    <!-- MESSAGE POPUP -->
+
+    <div class="message-popup" id="messagePopup">
+
+      <div class="message-popup-box">
+
+        <button class="close-message" onclick="closeHiddenMessage()">
+
+          ×
+
+        </button>
+
+
+        <div class="popup-heart">
+          ♡
+        </div>
+
+
+        <p id="popupMessage"></p>
+
+      </div>
+
+    </div>
+
+
+
+
+  </main>
+
+
+  <!-- Floating hearts -->
+
+  <div class="letter-heart heart-1">♡</div>
+  <div class="letter-heart heart-2">♡</div>
+  <div class="letter-heart heart-3">♡</div>
+  <div class="letter-heart heart-4">♡</div>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
